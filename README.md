@@ -12,9 +12,12 @@ sudo make clean install
 
 # Usage
 
-1. 使用`alt+pageUp`可以上滚一行。
-1. 使用`alt+pageDown`可以下滚一行。
-1. 使用`alt+shift+pageUp`可以上滚一页。
-1. 使用`alt+shift+pageDown`可以下滚一页。
-1. 使用`ctrl+shift+pageUp`可以放大。
-1. 使用`ctrl+shift+pageDown`可以缩小。
+- `alt + pageUp` - 上滚一行
+- `alt + pageDown` - 下滚一行
+- `alt + shift + pageUp` - 上滚一页
+- `alt + shift + pageDown` - 下滚一页
+- `ctrl + shift + pageUp` - 放大
+- `ctrl + shift + pageDown` - 缩小
+- `alt + shift + l` - 打开url
+- `alt + y` - 复制url
+- `alt + o` - 复制命令输出
