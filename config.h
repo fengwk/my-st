@@ -6,7 +6,10 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "FiraCode Nerd Font Mono:size=12:antialias=true:autohint=true";
-static char *font = "SauceCodePro Nerd Font Mono:pixelsize=32:antialias=true:autohint=true";
+static char *font = {
+  // "iconicfont:size=10",
+  "SauceCodePro Nerd Font Mono:size=12:antialias=true:autohint=true"
+};
 static int borderpx = 2;
 
 /*
@@ -129,31 +132,91 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-    /* https://st.suckless.org/patches/dracula/st-dracula-0.8.2.diff */
-    
-    /* 8 normal colors */
-    [0] = "#000000", /* black   */
-    [1] = "#ff5555", /* red     */
-    [2] = "#50fa7b", /* green   */
-    [3] = "#f1fa8c", /* yellow  */
-    [4] = "#bd93f9", /* blue    */
-    [5] = "#ff79c6", /* magenta */
-    [6] = "#8be9fd", /* cyan    */
-    [7] = "#bbbbbb", /* white   */
-  
-    /* 8 bright colors */
-    [8]  = "#44475a", /* black   */
-    [9]  = "#ff5555", /* red     */
-    [10] = "#50fa7b", /* green   */
-    [11] = "#f1fa8c", /* yellow  */
-    [12] = "#bd93f9", /* blue    */
-    [13] = "#ff79c6", /* magenta */
-    [14] = "#8be9fd", /* cyan    */
-    [15] = "#ffffff", /* white   */
-  
-    /* special colors */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
+  //   /* https://st.suckless.org/patches/dracula/st-dracula-0.8.2.diff */
+  //   
+  //   /* 8 normal colors */
+  //   [0] = "#000000", /* black   */
+  //   [1] = "#ff5555", /* red     */
+  //   [2] = "#50fa7b", /* green   */
+  //   [3] = "#f1fa8c", /* yellow  */
+  //   [4] = "#bd93f9", /* blue    */
+  //   [5] = "#ff79c6", /* magenta */
+  //   [6] = "#8be9fd", /* cyan    */
+  //   [7] = "#bbbbbb", /* white   */
+  // 
+  //   /* 8 bright colors */
+  //   [8]  = "#44475a", /* black   */
+  //   [9]  = "#ff5555", /* red     */
+  //   [10] = "#50fa7b", /* green   */
+  //   [11] = "#f1fa8c", /* yellow  */
+  //   [12] = "#bd93f9", /* blue    */
+  //   [13] = "#ff79c6", /* magenta */
+  //   [14] = "#8be9fd", /* cyan    */
+  //   [15] = "#ffffff", /* white   */
+  // 
+  //   /* special colors */
+  //   [256] = "#282a36", /* background */
+  //   [257] = "#f8f8f2", /* foreground */
+
+  // https://github.com/rebelot/kanagawa.nvim/blob/master/extras/alacritty_kanagawa.yml
+
+//   # Kanagawa Alacritty Colors
+// colors:
+//   primary:
+//     background: '#1f1f28'
+//     foreground: '#dcd7ba'
+//
+//   normal:
+//     black:   '#090618'
+//     red:     '#c34043'
+//     green:   '#76946a'
+//     yellow:  '#c0a36e'
+//     blue:    '#7e9cd8'
+//     magenta: '#957fb8'
+//     cyan:    '#6a9589'
+//     white:   '#c8c093'
+//
+//   bright:
+//     black:   '#727169'
+//     red:     '#e82424'
+//     green:   '#98bb6c'
+//     yellow:  '#e6c384'
+//     blue:    '#7fb4ca'
+//     magenta: '#938aa9'
+//     cyan:    '#7aa89f'
+//     white:   '#dcd7ba'
+//
+//   selection:
+//     background: '#2d4f67'
+//     foreground: '#c8c093'
+//
+//   indexed_colors:
+//     - { index: 16, color: '#ffa066' }
+//     - { index: 17, color: '#ff5d62' }
+
+  /* 8 normal colors */
+  [0] = "#1d1f21", /* black   */
+  [1] = "#cc6666", /* red     */
+  [2] = "#b5bd68", /* green   */
+  [3] = "#f0c674", /* yellow  */
+  [4] = "#81a2be", /* blue    */
+  [5] = "#b294bb", /* magenta */
+  [6] = "#8abeb7", /* cyan    */
+  [7] = "#c5c8c6", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#666666", /* black   */
+  [9]  = "#d54e53", /* red     */
+  [10] = "#b9ca4a", /* green   */
+  [11] = "#e7c547", /* yellow  */
+  [12] = "#7aa6da", /* blue    */
+  [13] = "#c397d8", /* magenta */
+  [14] = "#70c0b1", /* cyan    */
+  [15] = "#eaeaea", /* white   */
+
+  /* special colors */
+  [256] = "#1b1b1b", /* background */
+  [257] = "#c5c8c6", /* foreground */
 };
 
 // /*
@@ -263,8 +326,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 //	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 //	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i =  1} },
+	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i =  10} },
+	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i =  10} },
 	{ MODKEY|ShiftMask,     XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ MODKEY|ShiftMask,     XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
